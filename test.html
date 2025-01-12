@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/Frontend/index.css">
+</head>
+
+<body>
+    <div class="create-event-container">
+        <h1>Create Event</h1>
+        <form id="create-event-form" enctype="multipart/form-data">
+            <label for="event-title">Event Title:</label>
+            <input type="text" id="event-title" name="event-title" required>
+
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" name="event-date" required>
+
+            <label for="event-description">Event Description:</label>
+            <textarea id="event-description" name="event-description" rows="4" required></textarea>
+
+            <label for="event-image">Upload Image:</label>
+            <input type="file" id="event-image" name="eventimage" accept="image/*" required>
+
+            <button type="submit">Create Event</button>
+        </form>
+    </div>
+
+    <div class="view-events-container">
+        <h1>View Events</h1>
+        <div id="events-list">
+            <!-- Events will be dynamically populated here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to handle event creation
+        document.getElementById('create-event-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('create_event.php', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Event created successfully!');
+                    e.target.reset();
+                } else {
+                    alert('Failed to create event: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+
+</html>

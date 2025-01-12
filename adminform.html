@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/Frontend/index.css" />
+    <!--  <link rel="stylesheet" href="/Frontend/index2.css">-->
+  </head>
+
+  <body>
+    <div class="table-container">
+      <button class="logout" id="logoutBtn">Log out</button>
+      <h1>User Register</h1>
+      <table id="user-register">
+        <thead>
+          <tr>
+            <th>RegID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <h1>User Request</h1>
+      <table id="user-request">
+        <thead>
+          <tr>
+            <th>ReqID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Number</th>
+            <th>Request</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <h1>User Service</h1>
+      <table id="user-service">
+        <thead>
+          <tr>
+            <th>ServiceID</th>
+            <th>Service</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Location</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Section for creating events -->
+    <div class="create-event-container">
+      <h1>Create Event</h1>
+      <form
+        action="/Backend/createEvent.php"
+        method="post"
+        id="create-event-form"
+        enctype="multipart/form-data"
+      >
+        <label for="eventname">Event Title:</label>
+        <input type="text" id="eventname" name="eventname" required />
+
+        <label for="Date">Event Date:</label>
+        <input type="Date" id="Date" name="Date" required />
+
+        <label for="eventmessage">Event Description:</label>
+        <textarea
+          id="eventmessage"
+          name="eventmessage"
+          rows="4"
+          required
+        ></textarea>
+        <label for="event-image">Upload Image:</label>
+        <input
+          type="file"
+          id="eventimage"
+          name="eventimage"
+          accept="image/*"
+          required
+        />
+        <button type="submit">Create Event</button>
+      </form>
+    </div>
+
+    <!-- Section for viewing events -->
+    <div class="view-events-container">
+      <h1>View Events</h1>
+      <div id="events-list">
+        <!-- Events will be dynamically populated here by JavaScript -->
+      </div>
+    </div>
+    <script src="adminform/.js"></script>
+    <script>
+      // Array to hold event data
+      //const events = [];
+
+      // Function to render events without images
+      //function renderBasicEvents() {
+      ///    const eventsList = document.getElementById('events-list');
+      // eventsList.innerHTML = ''; // Clear existing content
+
+      // if (events.length === 0) {
+      //    const noEventsMessage = document.createElement('p');
+      //     noEventsMessage.textContent = 'There are no events yet.';
+      //    eventsList.appendChild(noEventsMessage);
+      // } else {
+      //      events.forEach((event, index) => {
+      //         const eventContainer = document.createElement('div');
+      //          eventContainer.classList.add('event');
+      //
+      //         eventContainer.innerHTML = `
+      //             <h2>${event.title}</h2>
+      //             <p><strong>Date:</strong> ${event.date}</p>
+      //           <p>${event.description}</p>
+      //            <button onclick="deleteEvent(${index})">Delete</button>
+      //         `;
+
+      //        eventsList.appendChild(eventContainer);
+      //  });
+      // }
+      // }
+
+      // Function to render events with images
+      //  function renderEventsWithImages() {
+      //    const eventList = document.getElementById('event-list');
+      //    eventList.innerHTML = ''; // Clear existing list
+
+      //     events.forEach((event, index) => {
+      //        const eventItem = document.createElement('div');
+      //       eventItem.classList.add('event-item');
+      //          eventItem.innerHTML = `
+      //         <h3>${event.title}</h3>
+      //       <p>${event.date}</p>
+      //     <p>${event.description}</p>
+      //   ${event.imageUrl ? `<img src="${event.imageUrl}" alt="Event Image">` : ''}
+      //     <button onclick="deleteEvent(${index})">Delete</button>
+      // `;
+      //  eventList.appendChild(eventItem);
+      //  });
+      //  }
+
+      // Function to handle event creation
+      // document.getElementById('create-event-form').addEventListener('submit', function (e) {
+      //    e.preventDefault();
+
+      //   const title = document.getElementById('event-title').value;
+      //  const date = document.getElementById('event-date').value;
+      //  const description = document.getElementById('event-description').value;
+
+      //  const imageInput = document.getElementById('event-image');
+      //   const imageFile = imageInput.files[0];
+      // let imageUrl = '';
+
+      //  if (imageFile) {
+      //    imageUrl = URL.createObjectURL(imageFile);
+      //   }
+      //
+      //   events.push({ title, date, description, imageUrl });
+
+      //  e.target.reset();
+      //  renderEventsWithImages(); // Update display to include images
+      // });
+
+      // Function to delete an event
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch the events from the backend
+        fetch("/Backend/barangay3_events.php") // Adjust the URL to your PHP file
+          .then((response) => response.json())
+          .then((events) => {
+            renderEvents(events);
+          })
+          .catch((error) => {
+            console.error("Error fetching events:", error);
+          });
+
+        // Function to render events
+        function renderEvents(events) {
+          const eventsList = document.getElementById("events-list");
+          eventsList.innerHTML = ""; // Clear existing content
+
+          if (events.length === 0 || events.message) {
+            const noEventsMessage = document.createElement("p");
+            noEventsMessage.textContent = "There are no events yet.";
+            eventsList.appendChild(noEventsMessage);
+          } else {
+            events.forEach((event) => {
+              const eventContainer = document.createElement("div");
+              eventContainer.classList.add("event");
+              eventContainer.innerHTML = `
+                    <h3>${event.eventname}</h3>
+                    <p><strong>Date:</strong> ${event.Date}</p>
+                    <p>${event.eventmessage}</p>
+                 <img src="C:/xampp/htdocs/barangay3/uploads/${event.eventimage}" alt="Event Image" />` ;
+              eventsList.appendChild(eventContainer);
+            });
+          }
+        }
+      });
+
+      //fetchEvents(); // Call this on page load
+    </script>
+  </body>
+</html>
