@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Query to retrieve event data
-$sql = "SELECT eventname, Date, eventmessage, eventimage FROM barangay3_events"; // Adjust table and field names
+$sql = "SELECT * FROM barangay3_events"; // Adjust table and field names
 $result = $conn->query($sql);
 
 $events = array();

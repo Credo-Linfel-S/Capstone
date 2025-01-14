@@ -104,7 +104,7 @@
       </div>
     </div>
     <script src="AdminFetchScheds.js"></script>
-    <script src="AdminFetchServices.js"></script>
+    <script src="AdminFetchServicesjs"></script>
     <script>
       // Array to hold event data
       //const events = [];
@@ -205,7 +205,7 @@
                     <h3>${event.eventname}</h3>
                     <p><strong>Date:</strong> ${event.Date}</p>
                     <p>${event.eventmessage}</p>
-                 <img src="C:/xampp/htdocs/barangay3/uploads/${event.eventimage}" alt="Event Image" />`;
+                 <img src="Backend/${event.eventimage}" alt="Event Image" />`;
               eventsList.appendChild(eventContainer);
             });
           }
