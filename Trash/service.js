@@ -1,5 +1,4 @@
-
- fetch("/Backend/service.php", {
+ fetch("/Backend/services.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

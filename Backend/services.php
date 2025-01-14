@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("issisiss", $Regid,$service, $username, $age ,$Location,$Phone_number, $email,$Date, );
 
     if ($stmt->execute()) {
-        header('Location: ../service.html');
+        header('Location: ../../service.html');
         exit();
     } else {
         echo json_encode(["success" => false, "message" => "Error: " . $stmt->error]);

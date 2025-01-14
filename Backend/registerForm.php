@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("sissss", $username, $age, $user_Location, $Phone_number, $loginEmail,$hash);
 
         if ($stmt->execute()) {
-           header('Location: ../index.html');
+           header('Location: ../../index.html');
            exit();
         } else {
             $message = "Error: " . $stmt->error;

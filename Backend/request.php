@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("issss", $Regid, $username, $Date, $Phone_number, $request );
 
     if ($stmt->execute()) {
-        header('Location: ../request.html');
+        header('Location: ../../request.html');
         exit();
     } else {
         echo json_encode(["success" => false, "message" => "Error: " . $stmt->error]);

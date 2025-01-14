@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Execute the query
         $stmt->execute();
-header('location: ../adminform.html');
+header('location: ../../adminform.html');
 exit();
         echo "Event created successfully.";
     } catch (PDOException $e) {

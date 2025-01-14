@@ -4,7 +4,7 @@ include('db.php');
 // Check if the user is logged in
 if (!isset($_SESSION['Reg_id'])) {
     // Redirect to login page if not logged in
-    header('Location: ../index.html');
+    header('Location: ../../index.html');
     exit();
 }
 

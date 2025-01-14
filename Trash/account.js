@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
          //alert(data.message || "Failed to fetch user data.");
         // window.location.href = "index.html"; // Redirect to login if not logged in
-        console.log('dd')
+        
       }
     })
     .catch((error) => {

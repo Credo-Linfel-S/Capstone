@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Query to retrieve schedule data
-$sql = "SELECT * FROM users_account"; // Replace 'schedule' with your actual table name
+$sql = "SELECT * FROM user_request"; // Replace 'schedule' with your actual table name
 $result = $conn->query($sql);
 
 $data = array();

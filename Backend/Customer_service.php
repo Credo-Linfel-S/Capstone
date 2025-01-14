@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("isiss", $Regid, $username, $Phone_number, $email,$user_message );
 
     if ($stmt->execute()) {
-        header('Location: ../customerservice.html');
+        header('Location: ../../customerservice.html');
         exit();
     } else {
         echo json_encode(["success" => false, "message" => "Error: " . $stmt->error]);

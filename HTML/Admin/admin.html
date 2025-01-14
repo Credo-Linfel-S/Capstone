@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/Frontend/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form id="adminForm">
+            <legend>Admin</legend>
+            <input
+              type="password"
+              id="admins_password"
+              placeholder="Admin Password"
+              required
+              name="admins_password"
+            /><br />
+            <button type="submit">Enter Admin</button>
+            <div id="logi1nMessage" style="color: red; margin-top: 10px"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/Javascript/admin.js"></script>
+  </body>
+</html>

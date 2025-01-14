@@ -5,39 +5,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listeners for buttons
   document.getElementById("requestBtn").addEventListener("click", function () {
-    openPageInNewTab("request.html");
+    openPageInNewTab("/HTML/Client/request.html");
   });
 
   document.getElementById("accountBtn").addEventListener("click", function () {
-    openPageInNewTab("account.html");
+    openPageInNewTab("/HTML/Client/account.html");
   });
 
   document.getElementById("homeBtn").addEventListener("click", function () {
-    openPageInNewTab("home.html");
+    openPageInNewTab("/HTML/home.html");
   });
 
   document.getElementById("scheduleBtn").addEventListener("click", function () {
-    openPageInNewTab("schedule.html");
+    openPageInNewTab("/HTML/Client/schedule.html");
   });
 
   document.getElementById("eventBtn").addEventListener("click", function () {
-    openPageInNewTab("event.html");
+    openPageInNewTab("/HTML/Client/event.html");
   });
 
   document.getElementById("servicesBtn").addEventListener("click", function () {
-    openPageInNewTab("service.html");
+    openPageInNewTab("/HTML/Client/service.html");
   });
 
   document.getElementById("customerBtn").addEventListener("click", function () {
-    openPageInNewTab("customerservice.html");
+    openPageInNewTab("/HTML/Client/customerservice.html");
   });
 
   document.getElementById("contactBtn").addEventListener("click", function () {
-    openPageInNewTab("contactservice.html");
+    openPageInNewTab("/HTML/Client/contactservice.html");
   });
 
   document.getElementById("logoutBtn").addEventListener("click", function () {
-    window.location.href = "index.html";
+    window.location.href = "/HTML/Client/index.html";
   });
 
   var navLinks = document.querySelectorAll(".nav-link");

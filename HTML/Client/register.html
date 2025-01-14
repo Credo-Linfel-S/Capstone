@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/Frontend/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="/Backend/registerForm.php" id="registerForm" method="POST">
+                    <legend>Register</legend>
+                    <input type="text" id="registerName" placeholder="Name" required name="username"><br>
+                    <input type="number" id="registerAge" placeholder="Age" required name="age"><br>
+                    <input type="text" id="registerLocation" placeholder="Location" required name="user_Location"><br>
+                    <input type="text" id="registerPhoneNumber" placeholder="Phone Number" required name="Phone_number"><br>
+                    <input type="email" id="registerEmail" placeholder="Email" required name="loginEmail"><br>
+                    <input type="password" id="registerPassword" placeholder="Password" required name="loginPassword"><br>
+                    <button id="registerButton">Register</button>
+                </form>
+                <div>
+                    <p id="registerMessage"></p>
+                </div>
+                <hr>
+                <h1>Login here</h1>
+                <a href="./index.html"><button id="login">Login</button></a>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="/Javascript/Register.js"></script>
+</body>
+</html>
