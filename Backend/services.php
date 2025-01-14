@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Rest of your form handling logic
     $Date = $conn->real_escape_string($_POST['Date'] ?? '');
     $service = $conn->real_escape_string($_POST['service'] ?? '');
-    $username = $_SESSION['username'];
+    $username = $_POST['username'];
     $age = $_POST['age'];
     $Location = $_POST['Location'];
     $Phone_number = $_POST['Phone_number'];

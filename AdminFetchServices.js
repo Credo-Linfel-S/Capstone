@@ -1,6 +1,6 @@
 // Function to fetch and display schedule data
 function fetchScheduleData() {
-  fetch("/Backend/FetchServicexs.php")
+  fetch("/Backend/FetchServices.php")
     .then((response) => response.json())
     .then((data) => {
       let table = document.getElementById("user-service");
@@ -25,4 +25,4 @@ function fetchScheduleData() {
 }
 
 // Call the function to fetch data when the page loads
-window.onload = fetchScheduleData;
+fetchScheduleData();
