@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $age = $_POST['age'];
     $user_Location = $_POST['user_Location'];
-    $phone_Number = $_POST['phone_Number'];
+    $Phone_Number = $_POST['Phone_Number'];
     $loginEmail = $_POST['loginEmail'];
     $loginPassword = $_POST['loginPassword'];
 
@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
         $hash =  password_hash($loginPassword, PASSWORD_DEFAULT);
         // Prepare and execute SQL query
-        $stmt = $conn->prepare("INSERT INTO users_account (username, age, user_Location, phone_Number, loginEmail, loginPassword) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sissss", $username, $age, $user_Location, $phone_Number, $loginEmail,$hash);
+        $stmt = $conn->prepare("INSERT INTO users_account (username, age, user_Location, Phone_Number, loginEmail, loginPassword) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sissss", $username, $age, $user_Location, $Phone_Number, $loginEmail,$hash);
 
         if ($stmt->execute()) {
            header('Location: ../index.html');

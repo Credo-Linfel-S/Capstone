@@ -15,7 +15,7 @@ $userData = [
     'username' => $_SESSION['username'],
     'age' => $_SESSION['age'],
     'user_location' => $_SESSION['user_location'],
-    'phone_number' => $_SESSION['phone_number'],
+    'Phone_number' => $_SESSION['Phone_number'],
     'loginEmail' => $_SESSION['loginEmail']
 ];
 

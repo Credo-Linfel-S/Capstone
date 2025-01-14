@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $query = "SELECT Regid, username, age, user_location, phone_number, loginPassword, loginEmail FROM users_account WHERE loginEmail = ?";
+    $query = "SELECT Regid, username, age, user_location, Phone_number, loginPassword, loginEmail FROM users_account WHERE loginEmail = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $row['username'];
             $_SESSION['age'] = $row['age'];
             $_SESSION['user_location'] = $row['user_location'];
-            $_SESSION['phone_number'] = $row['phone_number'];
+            $_SESSION['Phone_number'] = $row['Phone_number'];
             $_SESSION['loginEmail'] = $row['loginEmail'];
 
         }else{

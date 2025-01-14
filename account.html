@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
-    <link rel="stylesheet" href="/Frontend/index.css"/>
+    <link rel="stylesheet" href="/Frontend/index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -25,7 +25,7 @@
     <div class="content">
       <div class="content-information">
         <h1 class="information">My Information</h1>
-      
+
         <div class="details">
           <label for="username" class="Myid">Name:</label>
           <span id="username"></span>
@@ -39,8 +39,8 @@
           <span id="user_location"></span>
         </div>
         <div class="details">
-          <label for="phone_number" class="MyNumber">Phone Number:</label>
-          <span id="phone_number"></span>
+          <label for="Phone_number" class="MyNumber">Phone Number:</label>
+          <span id="Phone_number"></span>
         </div>
         <div class="details">
           <label for="loginEmail" class="MyEmail">Email:</label>
@@ -89,13 +89,13 @@
           if (data.error) {
             console.error(data.error);
           } else {
-           //document.getElementById("Regid").textContent = data.Regid;
+            //document.getElementById("Regid").textContent = data.Regid;
             document.getElementById("username").textContent = data.username;
             document.getElementById("age").textContent = data.age;
             document.getElementById("user_location").textContent =
               data.user_location;
-            document.getElementById("phone_number").textContent =
-              data.phone_number;
+            document.getElementById("Phone_number").textContent =
+              data.Phone_number;
             document.getElementById("loginEmail").textContent = data.loginEmail;
           }
         })

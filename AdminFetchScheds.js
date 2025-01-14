@@ -3,7 +3,7 @@ function fetchScheduleData() {
   fetch("/Backend/schedule.php")
     .then((response) => response.json())
     .then((data) => {
-      let table = document.getElementById("schedule-table");
+      let table = document.getElementById("user-request");
       let tableHTML =
         "<tr><th>ID</th><th>Name</th><th>Date</th><th>Request</th></tr>"; // Adjust columns based on your data
       data.forEach((row) => {

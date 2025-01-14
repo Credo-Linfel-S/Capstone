@@ -31,7 +31,7 @@
     <div class="table-container">
       <h1>User Request</h1>
       <table id="user-request">
-        <thead>
+       <thead>
           <tr>
             <th>ReqID</th>
             <th>Name</th>
@@ -103,7 +103,8 @@
         <!-- Events will be dynamically populated here by JavaScript -->
       </div>
     </div>
-    <script src="adminform/.js"></script>
+    <script src="AdminFetchScheds.js"></script>
+    <script src="AdminFetchServices.js"></script>
     <script>
       // Array to hold event data
       //const events = [];
@@ -204,7 +205,7 @@
                     <h3>${event.eventname}</h3>
                     <p><strong>Date:</strong> ${event.Date}</p>
                     <p>${event.eventmessage}</p>
-                 <img src="C:/xampp/htdocs/barangay3/uploads/${event.eventimage}" alt="Event Image" />` ;
+                 <img src="C:/xampp/htdocs/barangay3/uploads/${event.eventimage}" alt="Event Image" />`;
               eventsList.appendChild(eventContainer);
             });
           }

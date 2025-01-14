@@ -33,11 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Date = $conn->real_escape_string($_POST['Date'] ?? '');
     $request = $conn->real_escape_string($_POST['request'] ?? '');
    $username = $_POST['username'];
-    $number = $_SESSION['phone_number'];
+    $Phone_number = $_POST['Phone_number'];
 
     // Insert into database with image path
-    $stmt = $conn->prepare("INSERT INTO user_request (Regid, username, Date, number, request) VALUES ( ?, ?, ?, ?, ?)");
-    $stmt->bind_param("issss", $Regid, $username, $Date, $number, $request );
+    $stmt = $conn->prepare("INSERT INTO user_request (Regid, username, Date, Phone_number, request) VALUES ( ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issss", $Regid, $username, $Date, $Phone_number, $request );
 
     if ($stmt->execute()) {
         header('Location: ../request.html');
